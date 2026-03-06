@@ -1,0 +1,30 @@
+N=int(input())
+total_fail=0
+total_pass=0
+grade_a=0
+highest_avg=0
+for i in range(N):
+    ls=input().split()
+    marks=[int(item) for item in ls]
+    isfail=False
+    extra=0
+    for m in marks:
+        if int(m)<35:
+            isfail=True
+            total_fail+=1
+        elif int(m)==100:
+           extra+=5
+           total_pass+=1
+    avg=round((sum(marks)/len(marks))+extra,2)
+    if avg<60:
+        isfail=True
+        total_fail+=1
+    elif avg>=90:
+        grade_a+=1
+    total_pass+=1
+    if avg>highest_avg and isfail==False:
+        highest_avg=avg
+print(total_pass)
+print(total_fail)
+print(highest_avg)
+print(grade_a)
